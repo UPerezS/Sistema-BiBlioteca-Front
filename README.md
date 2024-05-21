@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="https://d2ms8rpfqc4h24.cloudfront.net/What_is_Flutter_f648a606af.png](https://blog.openclassrooms.com/es/wp-content/uploads/sites/5/2017/09/AdobeStock_126016889apaisado.jpg"/>
+    <img src="https://alfayomegadigital.com/wp-content/uploads/2022/03/QUE-ES-DESARROLLO-WEB-Y-SU-IMPORTANCIA-1-1030x604.jpg"/>
 </p>
 
 # Sistema BiBlioteca.
