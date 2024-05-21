@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="https://alfayomegadigital.com/wp-content/uploads/2022/03/QUE-ES-DESARROLLO-WEB-Y-SU-IMPORTANCIA-1-1030x604.jpg" height="300px" width="1200px">
+    <img src="https://alfayomegadigital.com/wp-content/uploads/2022/03/QUE-ES-DESARROLLO-WEB-Y-SU-IMPORTANCIA-1-1030x604.jpg" height="300px" width="1450px">
 </p>
 
 # Sistema BiBlioteca.
