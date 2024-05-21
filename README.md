@@ -4,5 +4,5 @@
 
 # Sistema BiBlioteca.
 # Integrantes: 
-- [Cristian Uriel Camacho Pérez.]()
-- [Saul Marin Reyes.]()
+- Cristian Uriel Camacho Pérez.
+- Saul Guadalupe Marin Reyes.
