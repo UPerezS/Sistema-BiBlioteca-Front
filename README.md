@@ -3,6 +3,8 @@
 </p>
 
 # Sistema BiBlioteca.
+- Desarrollar una aplicación web para la administración de la biblioteca de una universidad, dicha biblioteca tiene sus libros en modo físico y está en prueba el préstamo de libros digitales.
+  
 # Integrantes: 
 - Cristian Uriel Camacho Pérez.
 - Saul Guadalupe Marin Reyes.
