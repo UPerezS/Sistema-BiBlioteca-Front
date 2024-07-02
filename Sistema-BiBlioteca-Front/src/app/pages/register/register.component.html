@@ -1,1 +1,34 @@
-<p>register works!</p>
+<div class="register-container">
+    <h2>Registro de Usuario</h2>
+    <form [formGroup]="registerForm" (ngSubmit)="onRegister()">
+      <div class="form-group">
+        <label for="nombre">Nombre</label>
+        <input id="nombre" formControlName="nombre" type="text" class="form-control" />
+      </div>
+      <div class="form-group">
+        <label for="apellido_pa">Apellido Paterno</label>
+        <input id="apellido_pa" formControlName="apellido_pa" type="text" class="form-control" />
+      </div>
+      <div class="form-group">
+        <label for="apellido_ma">Apellido Materno</label>
+        <input id="apellido_ma" formControlName="apellido_ma" type="text" class="form-control" />
+      </div>
+      <div class="form-group">
+        <label for="correo">Correo Electrónico</label>
+        <input id="correo" formControlName="correo" type="email" class="form-control" />
+      </div>
+      <div class="form-group">
+        <label for="contrasena">Contraseña</label>
+        <input id="contrasena" formControlName="contrasena" type="password" class="form-control" />
+      </div>
+      <div class="form-group">
+        <label for="direccion">Dirección</label>
+        <input id="direccion" formControlName="direccion" type="text" class="form-control" />
+      </div>
+      <div class="form-group">
+        <label for="telefono">Teléfono</label>
+        <input id="telefono" formControlName="telefono" type="text" class="form-control" />
+      </div>
+      <button type="submit" class="btn btn-primary">Registrarse</button>
+    </form>
+  </div>

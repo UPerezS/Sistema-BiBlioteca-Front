@@ -2,34 +2,33 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
-import { environment } from '@environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
+  private apiUrl = 3500;
+
   constructor(private http: HttpClient) { }
 
-  registrar(usuario: any): Observable<any> {
-    const url = `${environment.apiUrl}/auth/registrar`;
-    return this.http.post(url, usuario);
-  }
-
-  login(usuario: any): Observable<any> {
-    const url = `${environment.apiUrl}/auth/login`;
-    return this.http.post(url, usuario).pipe(
-      tap((response: any) => {
-        if (response.token) {
-          localStorage.setItem('token', response.token);
-        }
+  register(user: any): Observable<any> {
+    return this.http.post<any>(`${this.apiUrl}/registrar`, user).pipe(
+      tap(response => {
+        console.log('User registered:', response);
       })
     );
   }
 
-  olvidoContrasena(data: any): Observable<any> {
-    const url = `${environment.apiUrl}/auth/olvido-contrasena`;
-    return this.http.post(url, data);
+  login(credentials: any): Observable<any> {
+    return this.http.post<any>(`${this.apiUrl}/login`, credentials).pipe(
+      tap(response => {
+        if (response.token) {
+          localStorage.setItem('token', response.token);
+        }
+        console.log('User logged in:', response);
+      })
+    );
   }
   
 }
