@@ -5,12 +5,16 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ListaLibrosComponent } from './componentes/administrador/lista-libros/lista-libros.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { FooterComponent } from './footer/footer.component';
+import { HeaderComponent } from './header/header.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    ListaLibrosComponent
+    ListaLibrosComponent,
+    FooterComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
