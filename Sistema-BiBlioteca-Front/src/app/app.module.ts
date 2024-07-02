@@ -9,6 +9,9 @@ import { InicioComponent } from './pages/inicio/inicio.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { AdminHomeComponent } from './components/administrador/admin-home/admin-home.component';
 import { UserHomeComponent } from './components/usuario/user-home/user-home.component';
+import { ListaLibrosComponent } from './pages/lista-libros/lista-libros.component';
+import { HeaderComponent } from './pages/header/header.component';
+import { FooterComponent } from './pages/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +20,10 @@ import { UserHomeComponent } from './components/usuario/user-home/user-home.comp
     InicioComponent,
     RegisterComponent,
     AdminHomeComponent,
-    UserHomeComponent
+    UserHomeComponent,
+    ListaLibrosComponent,
+    HeaderComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
