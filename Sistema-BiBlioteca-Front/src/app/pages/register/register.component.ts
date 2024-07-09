@@ -9,6 +9,42 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class RegisterComponent {
 
+  nombre: string = '';
+  apellido_pa: string = '';
+  apellido_ma: string = '';
+  correo: string = '';
+  contrasena: string = '';
+  direccion: string = '';
+  telefono: string = '';
+  rol: 0;
+  estatus: 1;
+
+  constructor(private userService: UserService) { }
+
+  register() {
+    const user = {
+      nombre: this.nombre,
+      apellido_pa: this.apellido_pa,
+      apellido_ma: this.apellido_ma,
+      correo: this.correo,
+      contrasena: this.contrasena,
+      direccion: this.direccion,
+      telefono: this.telefono,
+      rol: 0,
+      estatus: 1
+    };
+
+    this.userService.register(user).subscribe(
+      response => {
+        console.log('Registration successful', response);
+        // Redirigir al usuario a otra página si es necesario
+      },
+      error => {
+        console.error('Registration failed', error);
+      }
+    );
+  }
+  /*
   registerForm: FormGroup;
 
   constructor(private userService: UserService, private fb: FormBuilder) {
@@ -36,6 +72,6 @@ export class RegisterComponent {
         }
       );
     }
-  }
+  }*/
   
 }
