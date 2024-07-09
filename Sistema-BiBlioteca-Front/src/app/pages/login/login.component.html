@@ -1,1 +1,14 @@
-<p>login works!</p>
+<div class="login-container">
+    <h2>Inicio de Sesión</h2>
+    <form (ngSubmit)="login()">
+      <div>
+        <label for="correo">Correo:</label>
+        <input type="email" id="correo" [(ngModel)]="email" name="correo" required>
+      </div>
+      <div>
+        <label for="contrasena">Contraseña:</label>
+        <input type="password" id="contrasena" [(ngModel)]="password" name="contrasena" required>
+      </div>
+      <button type="submit">Iniciar Sesión</button>
+    </form>
+  </div>
