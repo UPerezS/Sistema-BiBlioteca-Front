@@ -1,4 +1,40 @@
 <div class="register-container">
+  <h2>Registro de Usuario</h2>
+  <form (ngSubmit)="register()">
+    <div>
+      <label for="nombre">Nombre:</label>
+      <input type="text" id="nombre" [(ngModel)]="nombre" name="nombre" required>
+    </div>
+    <div>
+      <label for="apellido_pa">Apellido Paterno:</label>
+      <input type="text" id="apellido_pa" [(ngModel)]="apellido_pa" name="apellido_pa" required>
+    </div>
+    <div>
+      <label for="apellido_ma">Apellido Materno:</label>
+      <input type="text" id="apellido_ma" [(ngModel)]="apellido_ma" name="apellido_ma" required>
+    </div>
+    <div>
+      <label for="correo">Correo:</label>
+      <input type="email" id="correo" [(ngModel)]="correo" name="correo" required>
+    </div>
+    <div>
+      <label for="contrasena">Contraseña:</label>
+      <input type="password" id="contrasena" [(ngModel)]="contrasena" name="contrasena" required>
+    </div>
+    <div>
+      <label for="direccion">Dirección:</label>
+      <input type="text" id="direccion" [(ngModel)]="direccion" name="direccion" required>
+    </div>
+    <div>
+      <label for="telefono">Teléfono:</label>
+      <input type="tel" id="telefono" [(ngModel)]="telefono" name="telefono" required>
+    </div>
+    <button type="submit">Registrar</button>
+  </form>
+</div>
+
+<!--
+<div class="register-container">
     <h2>Registro de Usuario</h2>
     <form [formGroup]="registerForm" (ngSubmit)="onRegister()">
       <div class="form-group">
@@ -32,3 +68,4 @@
       <button type="submit" class="btn btn-primary">Registrarse</button>
     </form>
   </div>
+-->
