@@ -18,7 +18,8 @@ const routes: Routes = [
   { path: 'user-home', component: UserHomeComponent, canActivate: [authGuard], data: { expectedRole: 0, requiresAuth: true } },
   //Rutas de Usuario Administrador "id = 1"
   { path: 'admin-home', component: AdminHomeComponent, canActivate: [authGuard], data: { expectedRole: 0, requiresAuth: true } },
-  { path: 'lista-libros', component: ListaLibrosComponent}
+  { path: 'lista-libros', component: ListaLibrosComponent, data: { requiresAuth: false } },
+  { path: '**', redirectTo: '/inicio' }
 ];
 
 @NgModule({
