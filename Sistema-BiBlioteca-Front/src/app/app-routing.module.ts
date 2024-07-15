@@ -10,15 +10,15 @@ import { ListaLibrosComponent } from './pages/lista-libros/lista-libros.componen
 
 const routes: Routes = [
   //Ruras Globales
-  { path: '', redirectTo: '/inicio', pathMatch: 'full' },
   { path: 'inicio', component: InicioComponent, data: { requiresAuth: false } },
   { path: 'login', component: LoginComponent, data: { requiresAuth: false } },
-  { path: 'registrar', component: RegisterComponent, data: { requiresAuth: false } },
+  { path: 'registro', component: RegisterComponent, data: { requiresAuth: false } },
   //Rutas de Usuario Normal "id = 0"
   { path: 'user-home', component: UserHomeComponent, canActivate: [authGuard], data: { expectedRole: 0, requiresAuth: true } },
   //Rutas de Usuario Administrador "id = 1"
   { path: 'admin-home', component: AdminHomeComponent, canActivate: [authGuard], data: { expectedRole: 0, requiresAuth: true } },
-  { path: 'lista-libros', component: ListaLibrosComponent}
+  { path: 'lista-libros', component: ListaLibrosComponent, data: { requiresAuth: false } },
+  { path: '**', redirectTo: '/inicio' }
 ];
 
 @NgModule({

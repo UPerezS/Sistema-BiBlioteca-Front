@@ -17,8 +17,8 @@ import { FooterComponent } from './pages/footer/footer.component';
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
     InicioComponent,
+    LoginComponent,
     RegisterComponent,
     AdminHomeComponent,
     UserHomeComponent,
