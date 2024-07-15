@@ -6,7 +6,20 @@
       <li class="active"> <a routerLink="/registro">Registro</a> </li>
     </ul>
 </nav>-->
-    <section class="home">
+<header class="header">
+    <div class="container">
+      <a [routerLink]="['/inicio']" class="logo">Sistema Biblioteca</a>
+      <nav class="navbar">
+        <ul class="nav-list">
+          <li class="active"> <a routerLink="/inicio">Inicio</a> </li>
+          <li class="active"> <a routerLink="/login">Login</a> </li>
+          <li class="active"> <a routerLink="/registro">Registro</a> </li>
+        </ul>
+      </nav>
+    </div>
+</header>
+
+<section class="home">
         <div class="description">
             
             <h1 class="title">
@@ -54,4 +67,4 @@
                 src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/97ef9643-5202-41aa-80f0-ceeabccdd099"
                 style="--i: 6" alt="" />
         </div>
-    </section>
+</section>
