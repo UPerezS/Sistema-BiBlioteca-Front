@@ -1,3 +1,39 @@
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600' rel='stylesheet' type='text/css'>
+<link href="//netdna.bootstrapcdn.com/font-awesome/3.1.1/css/font-awesome.css" rel="stylesheet">
+
+<header class="header">
+  <div class="container">
+    <a [routerLink]="['/inicio']" class="logo">Sistema Biblioteca</a>
+    <nav class="navbar">
+      <ul class="nav-list">
+        <li class="active"> <a routerLink="/inicio">Inicio</a> </li>
+        <li class="active"> <a routerLink="/login">Login</a> </li>
+        <li class="active"> <a routerLink="/registro">Registro</a> </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<div class="login-container">
+  <h2>Inicio de Sesión</h2>
+  <form (ngSubmit)="login()">
+    <div class="form-group">
+      <label id="icon" for="correo"><i class="icon-envelope"></i></label>
+      <input type="email" id="correo" [(ngModel)]="email" name="correo" placeholder="Correo" required>
+    </div>
+    <div class="form-group">
+      <label id="icon" for="contrasena"><i class="icon-shield"></i></label>
+      <input type="password" id="contrasena" [(ngModel)]="password" name="contrasena" placeholder="Contraseña" required>
+    </div>
+    <div class="button-group">
+      <button type="submit" class="button">Iniciar Sesión</button>
+      <br>
+      <a routerLink="/registro" class="button register-button">Regístrate</a>
+    </div>
+  </form>
+</div>
+
+<!--
 <div class="login-container">
     <h2>Inicio de Sesión</h2>
     <form (ngSubmit)="login()">
@@ -11,4 +47,4 @@
       </div>
       <button type="submit">Iniciar Sesión</button>
     </form>
-  </div>
+</div>-->

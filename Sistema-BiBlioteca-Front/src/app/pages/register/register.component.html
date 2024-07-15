@@ -1,3 +1,92 @@
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600' rel='stylesheet' type='text/css'>
+<link href="//netdna.bootstrapcdn.com/font-awesome/3.1.1/css/font-awesome.css" rel="stylesheet">
+
+<header class="header">
+  <div class="container">
+    <a [routerLink]="['/inicio']" class="logo">Sistema Biblioteca</a>
+    <nav class="navbar">
+      <ul class="nav-list">
+        <li class="active"> <a routerLink="/inicio">Inicio</a> </li>
+        <li class="active"> <a routerLink="/login">Login</a> </li>
+        <li class="active"> <a routerLink="/registro">Registro</a> </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<div class="testbox">
+  <h1>Registro de Usuario</h1>
+
+  <form [formGroup]="registerForm" (ngSubmit)="register()">
+    <div class="form-group">
+      <label id="icon" for="correo"><i class="icon-envelope"></i></label>
+      <input type="email" formControlName="correo" id="correo" placeholder="Correo para Iniciar Sesión" required/>
+      <div *ngIf="registerForm.get('correo').invalid && (registerForm.get('correo').dirty || registerForm.get('correo').touched)">
+        <small *ngIf="registerForm.get('correo').errors['required']" class="text-danger">Correo es requerido.</small>
+        <small *ngIf="registerForm.get('correo').errors['email']" class="text-danger">Correo inválido.</small>
+      </div>
+    </div>
+    <div class="form-group">
+      <label id="icon" for="nombre"><i class="icon-user"></i></label>
+      <input type="text" formControlName="nombre" id="nombre" placeholder="Nombre" required/>
+      <div *ngIf="registerForm.get('nombre').invalid && (registerForm.get('nombre').dirty || registerForm.get('nombre').touched)">
+        <small *ngIf="registerForm.get('nombre').errors['required']" class="text-danger">Nombre es requerido.</small>
+        <small *ngIf="registerForm.get('nombre').errors['maxLength']" class="text-danger">Nombre no debe exceder los 20 caracteres.</small>
+        <small *ngIf="registerForm.get('nombre').errors['pattern']" class="text-danger">Nombre debe contener solo letras.</small>
+      </div>
+    </div>
+    <div class="form-group">
+      <label id="icon" for="apellido_pa"><i class="icon-user"></i></label>
+      <input type="text" formControlName="apellido_pa" id="apellido_pa" placeholder="Apellido Paterno" required/>
+      <div *ngIf="registerForm.get('apellido_pa').invalid && (registerForm.get('apellido_pa').dirty || registerForm.get('apellido_pa').touched)">
+        <small *ngIf="registerForm.get('apellido_pa').errors['required']" class="text-danger">Apellido Paterno es requerido.</small>
+        <small *ngIf="registerForm.get('apellido_pa').errors['maxLength']" class="text-danger">Apellido Paterno no debe exceder los 20 caracteres.</small>
+        <small *ngIf="registerForm.get('apellido_pa').errors['pattern']" class="text-danger">Apellido Paterno debe contener solo letras.</small>
+      </div>
+    </div>
+    <div class="form-group">
+      <label id="icon" for="apellido_ma"><i class="icon-user"></i></label>
+      <input type="text" formControlName="apellido_ma" id="apellido_ma" placeholder="Apellido Materno" required/>
+      <div *ngIf="registerForm.get('apellido_ma').invalid && (registerForm.get('apellido_ma').dirty || registerForm.get('apellido_ma').touched)">
+        <small *ngIf="registerForm.get('apellido_ma').errors['required']" class="text-danger">Apellido Materno es requerido.</small>
+        <small *ngIf="registerForm.get('apellido_ma').errors['maxLength']" class="text-danger">Apellido Materno no debe exceder los 20 caracteres.</small>
+        <small *ngIf="registerForm.get('apellido_ma').errors['pattern']" class="text-danger">Apellido Materno debe contener solo letras.</small>
+      </div>
+    </div>
+    <div class="form-group">
+      <label id="icon" for="contrasena"><i class="icon-shield"></i></label>
+      <input type="password" formControlName="contrasena" id="contrasena" placeholder="Contraseña" required/>
+      <div *ngIf="registerForm.get('contrasena').invalid && (registerForm.get('contrasena').dirty || registerForm.get('contrasena').touched)">
+        <small *ngIf="registerForm.get('contrasena').errors['required']" class="text-danger">Contraseña es requerida.</small>
+        <small *ngIf="registerForm.get('contrasena').errors['minlength']" class="text-danger">Contraseña debe tener al menos 8 caracteres.</small>
+        <small *ngIf="registerForm.get('contrasena').errors['maxlength']" class="text-danger">Contraseña no debe exceder los 16 caracteres.</small>
+        <small *ngIf="registerForm.get('contrasena').errors['pattern']" class="text-danger">Contraseña debe contener al menos una mayúscula, una minúscula, un número y un carácter especial.</small>
+      </div>
+    </div>
+    <div class="form-group">
+      <label id="icon" for="direccion"><i class="icon-home"></i></label>
+      <input type="text" formControlName="direccion" id="direccion" placeholder="Dirección" required/>
+      <div *ngIf="registerForm.get('direccion').invalid && (registerForm.get('direccion').dirty || registerForm.get('direccion').touched)">
+        <small *ngIf="registerForm.get('direccion').errors['required']" class="text-danger">Dirección es requerida.</small>
+        <small *ngIf="registerForm.get('direccion').errors['maxlength']" class="text-danger">Dirección no debe exceder los 20 caracteres.</small>
+      </div>
+    </div>
+    <div class="form-group">
+      <label id="icon" for="telefono"><i class="icon-phone"></i></label>
+      <input type="tel" formControlName="telefono" id="telefono" placeholder="Teléfono" required/>
+      <div *ngIf="registerForm.get('telefono').invalid && (registerForm.get('telefono').dirty || registerForm.get('telefono').touched)">
+        <small *ngIf="registerForm.get('telefono').errors['required']" class="text-danger">Teléfono es requerido.</small>
+        <small *ngIf="registerForm.get('telefono').errors['maxlength']" class="text-danger">Teléfono no debe exceder los 9 dígitos.</small>
+        <small *ngIf="registerForm.get('telefono').errors['pattern']" class="text-danger">Teléfono debe contener exactamente 9 dígitos numéricos.</small>
+      </div>
+    </div>
+   
+    <p>Al hacer clic en Registrar, aceptas nuestros <a href="https://www.privacypolicies.com/live/8a10729b-33a4-4620-a26b-fd833122058d">términos y condiciones</a>.</p>
+    <button type="submit" class="button">Registrar</button>
+  </form>
+</div>
+
+<!--
 <div class="register-container">
   <h2>Registro de Usuario</h2>
   <form (ngSubmit)="register()">
@@ -32,40 +121,4 @@
     <button type="submit">Registrar</button>
   </form>
 </div>
-
-<!--
-<div class="register-container">
-    <h2>Registro de Usuario</h2>
-    <form [formGroup]="registerForm" (ngSubmit)="onRegister()">
-      <div class="form-group">
-        <label for="nombre">Nombre</label>
-        <input id="nombre" formControlName="nombre" type="text" class="form-control" />
-      </div>
-      <div class="form-group">
-        <label for="apellido_pa">Apellido Paterno</label>
-        <input id="apellido_pa" formControlName="apellido_pa" type="text" class="form-control" />
-      </div>
-      <div class="form-group">
-        <label for="apellido_ma">Apellido Materno</label>
-        <input id="apellido_ma" formControlName="apellido_ma" type="text" class="form-control" />
-      </div>
-      <div class="form-group">
-        <label for="correo">Correo Electrónico</label>
-        <input id="correo" formControlName="correo" type="email" class="form-control" />
-      </div>
-      <div class="form-group">
-        <label for="contrasena">Contraseña</label>
-        <input id="contrasena" formControlName="contrasena" type="password" class="form-control" />
-      </div>
-      <div class="form-group">
-        <label for="direccion">Dirección</label>
-        <input id="direccion" formControlName="direccion" type="text" class="form-control" />
-      </div>
-      <div class="form-group">
-        <label for="telefono">Teléfono</label>
-        <input id="telefono" formControlName="telefono" type="text" class="form-control" />
-      </div>
-      <button type="submit" class="btn btn-primary">Registrarse</button>
-    </form>
-  </div>
 -->
