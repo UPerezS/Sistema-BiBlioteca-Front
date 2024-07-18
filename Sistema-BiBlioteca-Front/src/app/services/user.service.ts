@@ -8,7 +8,7 @@ import { tap } from 'rxjs/operators';
 })
 export class UserService {
 
-  private apiUrl = 'http://localhost:3500/auth';  // URL del backend
+  private apiUrl = 'http://3.20.43.248:3500/auth';  // URL del backend
 
   constructor(private http: HttpClient) { }
 
