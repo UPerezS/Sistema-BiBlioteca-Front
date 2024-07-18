@@ -1,0 +1,14 @@
+{
+    "/auth": {
+        "target": "http://3.20.43.248:3500",
+        "secure": false,
+        "changeOrigin": true,
+        "logLevel": "debug"
+    },
+    "/auth2": {
+        "target": "http://localhost:3500",
+        "secure": false,
+        "changeOrigin": true,
+        "logLevel": "debug"
+    }
+}
