@@ -13,6 +13,8 @@ import { UserHomeComponent } from './components/usuario/user-home/user-home.comp
 import { ListaLibrosComponent } from './pages/lista-libros/lista-libros.component';
 import { HeaderComponent } from './pages/header/header.component';
 import { FooterComponent } from './pages/footer/footer.component';
+import { AdminAgregarlibrosComponent } from './components/administrador/admin-agregarlibros/admin-agregarlibros.component';
+import { UserVerlibrosComponent } from './components/usuario/user-verlibros/user-verlibros.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { FooterComponent } from './pages/footer/footer.component';
     UserHomeComponent,
     ListaLibrosComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    AdminAgregarlibrosComponent,
+    UserVerlibrosComponent
   ],
   imports: [
     BrowserModule,

@@ -58,3 +58,36 @@
     background-color: #495057;
     border-radius: 5px;
   }
+
+/*
+///////////////////////////////////////CSS PARA AGREGAR LIBROS/////////////////////////////////////////  
+*/
+
+  .container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .form-check {
+    margin-bottom: 10px;
+  }
+  
+  .btn {
+    display: block;
+    width: 100%;
+  }
+  
+  p {
+    text-align: center;
+    font-weight: bold;
+  }
