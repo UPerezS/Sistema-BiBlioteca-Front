@@ -1,3 +1,16 @@
+<header class="header">
+  <div class="container">
+    <a [routerLink]="['/inicio']" class="logo">Sistema Biblioteca</a>
+    <nav class="navbar">
+      <ul class="nav-list">
+        <li class="active"> <a routerLink="/admin-home">Ir a Inicio</a> </li>
+        <li class="active"> <a routerLink="/admin-agregar">Agregar Libros</a> </li>
+        <li class="active"> <a routerLink="/admin-lista-libros">Listar Libros</a> </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
 <div class="container">
   <form [formGroup]="form" (ngSubmit)="update()">
     <table class="table">

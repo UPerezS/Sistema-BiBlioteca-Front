@@ -21,7 +21,7 @@ const routes: Routes = [
   //Rutas de Usuario Administrador "id = 1"
   { path: 'admin-home', component: AdminHomeComponent, canActivate: [AuthGuard], data: { expectedRole: 1, requiresAuth: true } },
   { path: 'admin-agregar', component: AdminAgregarlibrosComponent, canActivate: [AuthGuard], data: { expectedRole: 1, requiresAuth: true } },
-  { path: 'lista-libros', component: ListaLibrosComponent, data: { requiresAuth: false } },
+  { path: 'admin-lista-libros', component: ListaLibrosComponent, canActivate: [AuthGuard], data: { expectedRole: 1, requiresAuth: true } },
   { path: '**', redirectTo: '/inicio' }
 ];
 
