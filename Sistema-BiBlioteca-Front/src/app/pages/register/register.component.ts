@@ -56,7 +56,7 @@ export class RegisterComponent {
           icon: 'success',
           confirmButtonText: 'Aceptar'
         }).then(() => {
-          this.router.navigate(['/admin-home']);
+          this.router.navigate(['/login']);
         });
         this.registerForm.reset();
       },
