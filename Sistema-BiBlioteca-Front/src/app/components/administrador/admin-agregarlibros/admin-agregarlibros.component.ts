@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { LibrosService } from 'src/app/services/libros.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-admin-agregarlibros',
@@ -17,8 +18,7 @@ export class AdminAgregarlibrosComponent {
       titulo_libro: ['', Validators.required],
       autor: ['', Validators.required],
       fecha_publicacion: ['', Validators.required],
-      genero: ['', Validators.required],
-      imagen: ['', Validators.required]
+      genero: ['', Validators.required]
     });
   }
 
@@ -30,18 +30,30 @@ export class AdminAgregarlibrosComponent {
 
     const nuevoLibro = {
       ...this.form.value,
+      imagen: 'Sin Imagen Agregada',
       estatus_prestamo: false,
       estatus: true
     };
 
     this.librosService.insertarLibro(nuevoLibro).subscribe(
       response => {
-        this.mensaje = response.message;
+        console.log(response);
         this.form.reset();
+        Swal.fire({
+          title: '¡Libro Registrado!',
+          text: 'Libro registrado correctamente.',
+          icon: 'success',
+          confirmButtonText: 'Aceptar'
+        });
       },
       error => {
         console.error('Error al agregar el libro:', error);
-        this.mensaje = 'Error al agregar el libro. Inténtelo de nuevo.';
+        Swal.fire({
+          title: 'Error al Agregar el Libro',
+          text: 'Ha ocurrido un error :( .',
+          icon: 'error',
+          confirmButtonText: 'Aceptar'
+        });
       }
     );
   }

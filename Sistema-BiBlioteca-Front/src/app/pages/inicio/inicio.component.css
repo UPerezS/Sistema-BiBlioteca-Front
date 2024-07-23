@@ -31,7 +31,7 @@ img {
 
 .home {
   display: grid;
-  grid-template-columns: 45% 50%;
+  grid-template-columns: 45% 40%;
   place-items: center;
   gap: 50px;
   background: rgb(67, 69, 112);
