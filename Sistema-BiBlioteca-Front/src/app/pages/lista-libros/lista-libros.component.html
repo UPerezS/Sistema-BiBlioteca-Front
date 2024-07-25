@@ -11,22 +11,22 @@
   </div>
 </header>
 
+<br>
+
 <div class="container">
+  <h3>Libros Disponibles</h3>
+  <br>
   <form [formGroup]="form" (ngSubmit)="update()">
     <table class="table">
       <thead>
         <tr>
-          <th scope="col">id_libro</th>
-          <th scope="col">Titulo Libro</th>
+          <th scope="col">ID</th>
+          <th scope="col">Titulo</th>
           <th scope="col">Autor</th>
           <th scope="col">Género</th>
           <th scope="col">Estatus Prestamo</th>
           <th scope="col">Estatus</th>
-          <th>
-            <button type="button" title="Add New" class="btn btn-primary" (click)="addLibro()">
-              <i class="bi bi-plus"></i>
-            </button>
-          </th>
+          <th scope="col">Acciones</th>
         </tr>
       </thead>
       <tbody>
@@ -39,7 +39,7 @@
             <td>{{ libro.estatus_prestamo ? 'Prestado' : 'Disponible' }}</td>
             <td>{{ libro.estatus ? 'Activo' : 'Inactivo' }}</td>
             <td>
-              <button class="btn btn-danger btn-sm mx-1" title="delete" type="button" (click)="deleteLibro(i)">
+              <button class="btn btn-danger btn-sm mx-1" title="Eliminar" type="button" (click)="deleteLibro(i)">
                 <i class="bi bi-trash"></i>
               </button>
             </td>
@@ -47,27 +47,24 @@
 
           <tr *ngIf="libroSeleccionado === libro" class="table-primary">
             <td>{{ libro.id_libro }}</td>
+            <td>{{ libro.titulo_libro }}</td>
             <td>
-              <div contenteditable>{{ libro.titulo_libro }}</div>
+              <input type="text" class="form-control" formControlName="autor" />
             </td>
             <td>
-              <input type="text" class="form-control" formControlName="autor" [value]="libro.autor" title="Autor" />
+              <input type="text" class="form-control" formControlName="genero" />
             </td>
             <td>
-              <input type="text" class="form-control" formControlName="genero" [value]="libro.genero" title="Género" />
+              <input type="checkbox" class="form-check-input" formControlName="estatus_prestamo" />
             </td>
             <td>
-              <input type="checkbox" class="form-check-input" formControlName="estatus_prestamo"
-                [checked]="libro.estatus_prestamo" />
+              <input type="checkbox" class="form-check-input" formControlName="estatus" />
             </td>
             <td>
-              <input type="checkbox" class="form-check-input" formControlName="estatus" [checked]="libro.estatus" />
-            </td>
-            <td>
-              <button class="btn btn-primary btn-sm mx-1" title="update" type="submit" [disabled]="form.invalid">
+              <button class="btn btn-primary btn-sm mx-1" title="Actualizar" type="submit" [disabled]="form.invalid">
                 <i class="bi bi-lightning"></i>
               </button>
-              <button class="btn btn-danger btn-sm mx-1" title="cancel" (click)="cancel()" type="button">
+              <button class="btn btn-danger btn-sm mx-1" title="Cancelar" (click)="cancel()" type="button">
                 <i class="bi bi-x-lg"></i>
               </button>
             </td>
