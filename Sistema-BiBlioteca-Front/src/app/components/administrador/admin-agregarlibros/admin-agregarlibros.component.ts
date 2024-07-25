@@ -1,19 +1,19 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { LibrosService } from 'src/app/services/libros.service';
+import { LibroFacadeService } from 'src/app/services/libro-facade.service';
 import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-admin-agregarlibros',
   templateUrl: './admin-agregarlibros.component.html',
-  styleUrl: './admin-agregarlibros.component.css'
+  styleUrls: ['./admin-agregarlibros.component.css']
 })
 export class AdminAgregarlibrosComponent {
 
   form: FormGroup;
   mensaje: string = '';
 
-  constructor(private fb: FormBuilder, private librosService: LibrosService) {
+  constructor(private fb: FormBuilder, private libroFacade: LibroFacadeService) {
     this.form = this.fb.group({
       titulo_libro: ['', Validators.required],
       autor: ['', Validators.required],
@@ -35,7 +35,7 @@ export class AdminAgregarlibrosComponent {
       estatus: true
     };
 
-    this.librosService.insertarLibro(nuevoLibro).subscribe(
+    this.libroFacade.agregarLibro(nuevoLibro).subscribe(
       response => {
         console.log(response);
         this.form.reset();
@@ -57,5 +57,4 @@ export class AdminAgregarlibrosComponent {
       }
     );
   }
-
 }
