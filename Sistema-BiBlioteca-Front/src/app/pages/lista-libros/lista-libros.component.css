@@ -159,3 +159,26 @@
   vertical-align: -0.125em;
   fill: currentColor;
 }
+
+.filter-form {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.filter-form .form-group {
+  margin-bottom: 0;
+  flex: 1;
+  min-width: 150px; /* Adjust this value based on your design requirements */
+}
+
+.filter-form .form-control {
+  display: inline-block;
+  width: 100%;
+}
+
+.filter-form .btn {
+  flex: 0;
+}

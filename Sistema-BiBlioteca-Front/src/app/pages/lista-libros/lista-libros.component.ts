@@ -12,6 +12,7 @@ export class ListaLibrosComponent implements OnInit, OnDestroy {
   libros: any[] = [];
   libroSeleccionado: any = null;
   form: FormGroup;
+  filtroForm: FormGroup;
   private librosSubscription: Subscription;
 
   constructor(private librosService: LibrosService, private fb: FormBuilder) {
@@ -20,6 +21,12 @@ export class ListaLibrosComponent implements OnInit, OnDestroy {
       genero: ['', Validators.required],
       estatus_prestamo: [false],
       estatus: [false]
+    });
+
+    this.filtroForm = this.fb.group({
+      titulo: [''],
+      autor: [''],
+      genero: ['']
     });
   }
 
@@ -41,6 +48,18 @@ export class ListaLibrosComponent implements OnInit, OnDestroy {
       },
       (error) => {
         console.error('Error al obtener los libros', error);
+      }
+    );
+  }
+
+  filtrarLibros(): void {
+    const { titulo, autor, genero } = this.filtroForm.value;
+    this.librosService.filtrarLibros(titulo, autor, genero).subscribe(
+      (data) => {
+        this.libros = data;
+      },
+      (error) => {
+        console.error('Error al filtrar los libros', error);
       }
     );
   }
@@ -68,7 +87,7 @@ export class ListaLibrosComponent implements OnInit, OnDestroy {
         genero: this.form.value.genero,
         estatus_prestamo: this.form.value.estatus_prestamo,
         estatus: this.form.value.estatus,
-        fecha_publicacion: this.form.value.fecha_publicacion // Incluye la fecha en la actualización
+        fecha_publicacion: this.form.value.fecha_publicacion
       };
 
       this.librosService.actualizarLibro(this.libroSeleccionado.id_libro, libroActualizado).subscribe(
@@ -96,4 +115,7 @@ export class ListaLibrosComponent implements OnInit, OnDestroy {
       }
     );
   }
+
+  
+
 }
