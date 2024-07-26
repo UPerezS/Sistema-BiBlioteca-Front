@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable, Subject } from 'rxjs';
 import { tap } from 'rxjs/operators';
 
@@ -37,6 +37,21 @@ export class LibrosService {
 
   librosChanged(): Observable<any> {
     return this.librosSubject.asObservable();
+  }
+
+  filtrarLibros(titulo: string, autor: string, genero: string): Observable<any> {
+    let params = new HttpParams();
+    if (titulo) {
+      params = params.append('titulo', titulo);
+    }
+    if (autor) {
+      params = params.append('autor', autor);
+    }
+    if (genero) {
+      params = params.append('genero', genero);
+    }
+  
+    return this.http.get(`${this.apiUrl}/filtrar`, { params });
   }
 
 }
