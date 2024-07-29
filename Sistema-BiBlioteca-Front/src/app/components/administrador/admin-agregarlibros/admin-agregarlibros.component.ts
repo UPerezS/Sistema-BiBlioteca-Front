@@ -12,6 +12,7 @@ export class AdminAgregarlibrosComponent {
 
   form: FormGroup;
   mensaje: string = '';
+  generos: string[] = ['Terror', 'Ciencia Ficción', 'Romance', 'Fantasía', 'Misterio'];
 
   constructor(private fb: FormBuilder, private libroFacade: LibroFacadeService) {
     this.form = this.fb.group({

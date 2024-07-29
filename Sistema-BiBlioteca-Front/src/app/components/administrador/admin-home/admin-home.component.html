@@ -1,19 +1,19 @@
 <header class="header">
-    <div class="container">
-      <a [routerLink]="['/inicio']" class="logo">Sistema Biblioteca</a>
-      <nav class="navbar">
-        <ul class="nav-list">
-          <li class="active"> <a routerLink="/admin-home">Ir a Inicio</a> </li>
-          <li class="active"> <a routerLink="/admin-agregar">Agregar Libros</a> </li>
-          <li class="active"> <a routerLink="/admin-lista-libros">Listar Libros</a> </li>
-        </ul>
-      </nav>
-    </div>
+  <div class="container">
+    <a [routerLink]="['/inicio']" class="logo">Sistema Biblioteca</a>
+    <nav class="navbar">
+      <ul class="nav-list">
+        <li class="active"><a routerLink="/admin-home">Ir a Inicio</a></li>
+        <li class="active"><a routerLink="/admin-agregar">Agregar Libros</a></li>
+        <li class="active"><a routerLink="/admin-lista-libros">Listar Libros</a></li>
+      </ul>
+    </nav>
+  </div>
 </header>
 
 <div class="container mt-4">
-  <h1>Bienvenido a la administración de la biblioteca</h1>
-  <!-- Aquí puedes agregar más contenido relacionado con la administración -->
+  <h1>{{ decoratedMessage }}</h1>
+  <p>Utiliza el menú de navegación para gestionar los libros de la biblioteca.</p>
+  <button class="btn btn-primary" (click)="decorateMessage()">Decorar Mensaje usando Decorator</button>
+  <button class="btn btn-danger" (click)="logout()">Cerrar Sesión</button>
 </div>
-
-<button class="btn btn-danger nav-link" (click)="logout()">Cerrar Sesión</button>
