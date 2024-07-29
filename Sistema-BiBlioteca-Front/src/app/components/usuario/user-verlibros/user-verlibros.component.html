@@ -39,7 +39,6 @@
         <th scope="col">Autor</th>
         <th scope="col">Género</th>
         <th scope="col">Estatus Prestamo</th>
-        <th scope="col">Estatus</th>
       </tr>
     </thead>
     <tbody>
@@ -50,7 +49,6 @@
           <td>{{ libro.autor }}</td>
           <td>{{ libro.genero }}</td>
           <td>{{ libro.estatus_prestamo ? 'Prestado' : 'Disponible' }}</td>
-          <td>{{ libro.estatus ? 'Activo' : 'Inactivo' }}</td>
         </tr>
       </ng-container>
     </tbody>
