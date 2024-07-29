@@ -6,6 +6,7 @@
         <li class="active"><a routerLink="/admin-home">Ir a Inicio</a></li>
         <li class="active"><a routerLink="/admin-agregar">Agregar Libros</a></li>
         <li class="active"><a routerLink="/admin-lista-libros">Listar Libros</a></li>
+        <li class="active"><a routerLink="/hitorial-prestamos">Historial Libros</a></li>
       </ul>
     </nav>
   </div>
@@ -53,7 +54,7 @@
             <td>{{ libro.autor }}</td>
             <td>{{ libro.genero }}</td>
             <td>{{ libro.estatus_prestamo ? 'Prestado' : 'Disponible' }}</td>
-            <td>{{ libro.estatus ? 'Activo' : 'Inactivo' }}</td>
+            <td>{{ libro.estatus ? 'Inactivo' : 'Activo' }}</td>
             <td>
               <button class="btn btn-danger btn-sm mx-1" title="Eliminar" type="button" (click)="deleteLibro(i)">
                 <i class="bi bi-trash"></i>
