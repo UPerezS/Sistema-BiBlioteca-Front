@@ -62,15 +62,22 @@ export class RegisterComponent {
       },
       error => {
         console.error('Registration failed', error);
+        let errorMessage = 'Hubo un problema al registrar el usuario. Por favor intenta de nuevo más tarde.';
+        if (error.status === 409) {
+          errorMessage = 'El correo ya está registrado. Por favor usa un correo diferente.';
+        }
         Swal.fire({
           title: 'Error',
-          text: 'Hubo un problema al registrar el usuario. Por favor intenta de nuevo más tarde.',
+          text: errorMessage,
           icon: 'error',
           confirmButtonText: 'Aceptar'
         });
       }
     );
   }
+
+
+
 }
   
   
