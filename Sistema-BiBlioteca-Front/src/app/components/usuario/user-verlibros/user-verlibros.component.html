@@ -40,6 +40,7 @@
         <th scope="col">Autor</th>
         <th scope="col">Género</th>
         <th scope="col">Estatus Prestamo</th>
+        <th scope="col">Acciones</th>
       </tr>
     </thead>
     <tbody>
@@ -50,6 +51,9 @@
           <td>{{ libro.autor }}</td>
           <td>{{ libro.genero }}</td>
           <td>{{ libro.estatus_prestamo ? 'Prestado' : 'Disponible' }}</td>
+          <td>
+            <button class="btn btn-primary" [disabled]="libro.estatus_prestamo" (click)="prestarLibro(libro.id_libro)">Pedir</button>
+          </td>
         </tr>
       </ng-container>
     </tbody>

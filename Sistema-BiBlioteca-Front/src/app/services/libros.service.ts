@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
-import { Observable, Subject } from 'rxjs';
-import { tap } from 'rxjs/operators';
+import { Observable, Subject, throwError } from 'rxjs';
+import { catchError, tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -9,6 +9,7 @@ import { tap } from 'rxjs/operators';
 export class LibrosService {
 
   private apiUrl = 'http://localhost:3500/api/libros';
+  private apiUrlpres = 'http://localhost:3500/api_prestamos';
   private librosSubject = new Subject<void>();
 
   constructor(private http: HttpClient) { }
@@ -52,6 +53,21 @@ export class LibrosService {
     }
   
     return this.http.get(`${this.apiUrl}/filtrar`, { params });
+  }
+
+
+  prestarLibro(idUsuario: number, idLibro: number): Observable<any> {
+    const url = `${this.apiUrlpres}/prestamos`;
+    const body = { id_usuario: idUsuario, id_libro: idLibro };
+    return this.http.post(url, body).pipe(
+      tap((response: any) => {
+        console.log('Libro prestado con éxito');
+      }),
+      catchError((error: any) => {
+        console.error('Error al prestar libro', error);
+        return throwError(error);
+      })
+    );
   }
 
 }
