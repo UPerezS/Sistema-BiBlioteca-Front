@@ -1,0 +1,35 @@
+<header class="header">
+  <div class="container">
+    <a [routerLink]="['/inicio']" class="logo">Sistema Biblioteca</a>
+    <nav class="navbar">
+      <ul class="nav-list">
+        <li class="active"><a routerLink="/user-home">Ir a Inicio</a></li>
+        <li class="active"><a routerLink="/user-vista">Ver Libros</a></li>
+        <li class="active"><a routerLink="/hitorial-prestamos-id">Historial Libros</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</header>
+<div class="container">
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">ID Préstamo</th>
+        <th scope="col">Fecha Préstamo</th>
+        <th scope="col">Fecha Devolución</th>
+        <th scope="col">Libro</th>
+      </tr>
+    </thead>
+    <tbody>
+      <ng-container *ngFor="let prestamo of prestamos">
+        <tr>
+          <td>{{ prestamo.id_prestamo }}</td>
+          <td>{{ prestamo.fecha_prestamo }}</td>
+          <td>{{ prestamo.fecha_devolucion }}</td>
+          <td>{{ prestamo.libro }}</td>
+        </tr>
+      </ng-container>
+    </tbody>
+  </table>
+</div>

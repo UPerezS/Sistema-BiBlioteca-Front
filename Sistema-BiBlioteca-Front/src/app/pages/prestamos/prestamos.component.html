@@ -1,0 +1,37 @@
+<header class="header">
+    <div class="container">
+      <a [routerLink]="['/inicio']" class="logo">Sistema Biblioteca</a>
+      <nav class="navbar">
+        <ul class="nav-list">
+          <li class="active"><a routerLink="/admin-home">Ir a Inicio</a></li>
+          <li class="active"><a routerLink="/admin-agregar">Agregar Libros</a></li>
+          <li class="active"><a routerLink="/admin-lista-libros">Listar Libros</a></li>
+          <li class="active"><a routerLink="/hitorial-prestamos">Historial Libros</a></li>
+          
+        </ul>
+      </nav>
+    </div>
+  </header>
+<br><div class="container">
+    <h3>Historial completo de libros</h3>
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">ID Préstamo</th>
+        <th scope="col">Fecha Préstamo</th>
+        <th scope="col">Fecha Devolución</th>
+        <th scope="col">Usuario</th>
+        <th scope="col">Libro</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let prestamo of prestamos">
+        <td>{{ prestamo.id_prestamo }}</td>
+        <td>{{ prestamo.fecha_prestamo }}</td>
+        <td>{{ prestamo.fecha_devolucion }}</td>
+        <td>{{ prestamo.usuario }}</td>
+        <td>{{ prestamo.libro }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

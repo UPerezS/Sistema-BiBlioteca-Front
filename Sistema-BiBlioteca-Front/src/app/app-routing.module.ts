@@ -9,6 +9,8 @@ import { AdminHomeComponent } from './components/administrador/admin-home/admin-
 import { ListaLibrosComponent } from './pages/lista-libros/lista-libros.component';
 import { AdminAgregarlibrosComponent } from './components/administrador/admin-agregarlibros/admin-agregarlibros.component';
 import { UserVerlibrosComponent } from './components/usuario/user-verlibros/user-verlibros.component';
+import { PrestamosComponent } from './pages/prestamos/prestamos.component';
+import { PrestamosHistorialComponent } from './components/usuario/prestamos-historial/prestamos-historial.component';
 
 const routes: Routes = [
   //Ruras Globales
@@ -22,6 +24,10 @@ const routes: Routes = [
   { path: 'admin-home', component: AdminHomeComponent, canActivate: [AuthGuard], data: { expectedRole: 1, requiresAuth: true } },
   { path: 'admin-agregar', component: AdminAgregarlibrosComponent, canActivate: [AuthGuard], data: { expectedRole: 1, requiresAuth: true } },
   { path: 'admin-lista-libros', component: ListaLibrosComponent, canActivate: [AuthGuard], data: { expectedRole: 1, requiresAuth: true } },
+  {path: 'hitorial-prestamos',component: PrestamosComponent, canActivate: [AuthGuard], data: { expectedRole: 1, requiresAuth: true } 
+  }, 
+  {path: 'hitorial-prestamos-id', component: PrestamosHistorialComponent, canActivate: [AuthGuard], data: { expectedRole: 0, requiresAuth: true } 
+  },
   { path: '**', redirectTo: '/inicio' }
 ];
 
