@@ -19,6 +19,7 @@
         <th scope="col">Fecha Préstamo</th>
         <th scope="col">Fecha Devolución</th>
         <th scope="col">Libro</th>
+        <th scope="col">Devolución</th>
       </tr>
     </thead>
     <tbody>
@@ -28,6 +29,9 @@
           <td>{{ prestamo.fecha_prestamo }}</td>
           <td>{{ prestamo.fecha_devolucion }}</td>
           <td>{{ prestamo.titulo_libro }}</td>
+          <td>
+          <button *ngIf="!prestamo.fecha_devolucion" (click)="devolverLibro(prestamo.id_prestamo)">Devolver</button>
+        </td>
         </tr>
       </ng-container>
     </tbody>

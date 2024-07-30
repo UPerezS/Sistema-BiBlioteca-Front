@@ -28,4 +28,14 @@ export class PrestamosHistorialComponent {
     });
   }
   
+  devolverLibro(idPrestamo: number): void {
+    const confirmacion = confirm('¿Estás seguro de devolver el libro?');
+    if (confirmacion) {
+      this.prestamosService.devolverLibro(idPrestamo).subscribe((response) => {
+        console.log('Libro devuelto con éxito');
+        this.obtenerHistorialPrestamos(); // Actualiza la lista de préstamos
+      });
+    }
+  }
+
 }

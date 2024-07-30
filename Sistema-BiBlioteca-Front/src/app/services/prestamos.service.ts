@@ -19,4 +19,8 @@ export class PrestamosService {
     return this.http.get(`${this.apiUrl}/prestamos/${idUsuario}`);
   }
 
+
+  devolverLibro(idPrestamo: number) {
+    return this.http.put(`${this.apiUrl}/prestamos/${idPrestamo}`, {});
+  }
 }
