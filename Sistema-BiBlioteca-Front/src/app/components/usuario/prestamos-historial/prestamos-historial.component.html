@@ -1,0 +1,20 @@
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">ID Préstamo</th>
+        <th scope="col">Fecha Préstamo</th>
+        <th scope="col">Fecha Devolución</th>
+        <th scope="col">Libro</th>
+      </tr>
+    </thead>
+    <tbody>
+      <ng-container *ngFor="let prestamo of prestamos">
+        <tr>
+          <td>{{ prestamo.id_prestamo }}</td>
+          <td>{{ prestamo.fecha_prestamo }}</td>
+          <td>{{ prestamo.fecha_devolucion }}</td>
+          <td>{{ prestamo.libro }}</td>
+        </tr>
+      </ng-container>
+    </tbody>
+  </table>

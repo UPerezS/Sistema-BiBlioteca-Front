@@ -9,7 +9,7 @@ import { PrestamosService } from 'src/app/services/prestamos.service';
 export class PrestamosComponent {
 
   prestamos: any;
-
+  idUsuario: 0;
   constructor(private prestamosService: PrestamosService) { }
 
   ngOnInit(): void {

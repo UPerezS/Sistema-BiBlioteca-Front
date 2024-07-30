@@ -15,6 +15,8 @@ import { HeaderComponent } from './pages/header/header.component';
 import { FooterComponent } from './pages/footer/footer.component';
 import { AdminAgregarlibrosComponent } from './components/administrador/admin-agregarlibros/admin-agregarlibros.component';
 import { UserVerlibrosComponent } from './components/usuario/user-verlibros/user-verlibros.component';
+import { PrestamosComponent } from './pages/prestamos/prestamos.component';
+import { PrestamosHistorialComponent } from './components/usuario/prestamos-historial/prestamos-historial.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,9 @@ import { UserVerlibrosComponent } from './components/usuario/user-verlibros/user
     HeaderComponent,
     FooterComponent,
     AdminAgregarlibrosComponent,
-    UserVerlibrosComponent
+    UserVerlibrosComponent,
+    PrestamosComponent,
+    PrestamosHistorialComponent
   ],
   imports: [
     BrowserModule,
