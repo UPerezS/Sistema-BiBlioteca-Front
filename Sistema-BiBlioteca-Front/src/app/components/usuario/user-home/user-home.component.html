@@ -5,9 +5,15 @@
         <ul class="nav-list">
             <li class="active"> <a routerLink="/user-home">Ir a Inicio</a> </li>
             <li class="active"> <a routerLink="/user-vista">Ver Libros</a> </li>
+            <li class="active"><a routerLink="/hitorial-prestamos-id">Historial Libros</a></li>
         </ul>
       </nav>
     </div>
 </header>
 
-<button (click)="logout()">Cerrar Sesión</button>
+<div class="container mt-4">
+  <h1>{{ decoratedMessage }}</h1>
+  <p>Utiliza el menú de navegación para explorar los libros disponibles.</p>
+  <button class="btn btn-primary" (click)="decorateMessage()">Decorar Mensaje usando Decorator</button>
+  <button class="btn btn-danger" (click)="logout()">Cerrar Sesión</button>
+</div>

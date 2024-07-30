@@ -64,3 +64,27 @@
     margin-top: 20px;
     font-size: 2rem;
   }
+
+  .container.mt-4 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .container.mt-4 h1 {
+    margin-top: 20px;
+    font-size: 2rem;
+  }
+  
+  .container.mt-4 p {
+    font-size: 1.2rem;
+    margin-top: 10px;
+  }
+  
+  .container.mt-4 .btn {
+    margin-top: 20px;
+    font-size: 1rem;
+    padding: 10px 20px;
+    margin-right: 10px;
+  }

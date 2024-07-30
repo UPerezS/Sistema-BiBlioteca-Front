@@ -1,3 +1,17 @@
+<header class="header">
+  <div class="container">
+    <a [routerLink]="['/inicio']" class="logo">Sistema Biblioteca</a>
+    <nav class="navbar">
+      <ul class="nav-list">
+        <li class="active"><a routerLink="/user-home">Ir a Inicio</a></li>
+        <li class="active"><a routerLink="/user-vista">Ver Libros</a></li>
+        <li class="active"><a routerLink="/hitorial-prestamos-id">Historial Libros</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</header>
+<div class="container">
 <table class="table">
     <thead>
       <tr>
@@ -18,3 +32,4 @@
       </ng-container>
     </tbody>
   </table>
+</div>
