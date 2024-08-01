@@ -14,6 +14,8 @@
 <div class="container mt-4">
   <h1>{{ decoratedMessage }}</h1>
   <p>Utiliza el menú de navegación para explorar los libros disponibles.</p>
+  <p><strong>Decoraciones Realizadas:</strong> {{ decorationCount }}</p>
+  <p>Al cambiar de pantalla se reiniciara el contador.</p>
   <button class="btn btn-primary" (click)="decorateMessage()">Decorar Mensaje usando Decorator</button>
   <button class="btn btn-danger" (click)="logout()">Cerrar Sesión</button>
 </div>
