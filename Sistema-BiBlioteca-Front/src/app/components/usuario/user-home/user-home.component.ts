@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
-import { MessageDecoratorService } from 'src/app/services/message-decorator.service';
+import { MessageDecoratorManagerService } from 'src/app/services/message-decorator-manager.service';
+import { EmojiDecoratorService } from 'src/app/services/emoji-decorator.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -12,26 +13,27 @@ export class UserHomeComponent {
 
   baseMessage: string = 'Hola Usuario, Bienvenido a la biblioteca';
   decoratedMessage: string;
-  decorationIndex: number = 0;
+  decorationCount: number = 0;
 
   constructor(
     private authService: AuthService,
     private router: Router,
-    private messageDecoratorService: MessageDecoratorService
+    private messageDecoratorManager: MessageDecoratorManagerService,
+    private emojiDecorator: EmojiDecoratorService
   ) {}
 
   ngOnInit() {
-    this.decoratedMessage = this.messageDecoratorService.decorate(this.baseMessage, this.decorationIndex);
+    this.messageDecoratorManager.addDecorator(this.emojiDecorator);
+    this.decorateMessage();
   }
 
   decorateMessage() {
-    this.decorationIndex++;
-    this.decoratedMessage = this.messageDecoratorService.decorate(this.baseMessage, this.decorationIndex);
+    this.decorationCount++;
+    this.decoratedMessage = this.messageDecoratorManager.decorate(this.baseMessage);
   }
 
   logout() {
     this.authService.logout();
     this.router.navigate(['/inicio']);
   }
-
 }
