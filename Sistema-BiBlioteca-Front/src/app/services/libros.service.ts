@@ -8,8 +8,8 @@ import { catchError, tap } from 'rxjs/operators';
 })
 export class LibrosService {
 
-  private apiUrl = 'http://localhost:3500/api/libros';
-  private apiUrlpres = 'http://localhost:3500/api_prestamos';
+  private apiUrl = 'http://3.20.43.248:3500/api/libros';
+  private apiUrlpres = 'http://3.20.43.248:3500/api_prestamos';
   private librosSubject = new Subject<void>();
 
   constructor(private http: HttpClient) { }
