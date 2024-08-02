@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class PrestamosService {
 
-  private apiUrl = 'http://localhost:3500/api_prestamos';
+  private apiUrl = 'http://3.20.43.248:3500/api_prestamos';
 
   constructor(private http: HttpClient) { }
 
