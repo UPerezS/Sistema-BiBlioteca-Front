@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormGroup, ValidationErrors, Validators } from '@angular/forms';
 import { LibroFacadeService } from 'src/app/services/libro-facade.service';
 import Swal from 'sweetalert2';
 
@@ -13,12 +13,13 @@ export class AdminAgregarlibrosComponent {
   form: FormGroup;
   mensaje: string = '';
   generos: string[] = ['Terror', 'Ciencia Ficción', 'Romance', 'Fantasía', 'Misterio'];
+  
 
   constructor(private fb: FormBuilder, private libroFacade: LibroFacadeService) {
     this.form = this.fb.group({
-      titulo_libro: ['', Validators.required],
-      autor: ['', Validators.required],
-      fecha_publicacion: ['', Validators.required],
+      titulo_libro: ['', [Validators.required, Validators.minLength(3)]],
+      autor: ['', [Validators.required, Validators.minLength(3)]],
+      fecha_publicacion: ['', [Validators.required, this.fechaNoFutura]],
       genero: ['', Validators.required]
     });
   }
@@ -57,5 +58,14 @@ export class AdminAgregarlibrosComponent {
         });
       }
     );
+  }
+
+  fechaNoFutura(control: AbstractControl): ValidationErrors | null {
+    const fecha = new Date(control.value);
+    const fechaActual = new Date();
+    if (fecha.getTime() > fechaActual.getTime()) {
+      return { fechaNoFutura: true };
+    }
+    return null;
   }
 }

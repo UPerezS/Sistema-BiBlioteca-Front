@@ -105,16 +105,35 @@ export class ListaLibrosComponent implements OnInit, OnDestroy {
 
   deleteLibro(index: number): void {
     const libro = this.libros[index];
-    this.librosService.eliminarLibro(libro.id_libro).subscribe(
-      (response) => {
-        console.log(response.message);
-        this.libros.splice(index, 1);
-      },
-      (error) => {
-        console.error('Error al eliminar el libro', error);
-      }
-    );
+  
+    // Verificar si el libro está prestado
+    if (libro.estatus_prestamo) {
+      // Muestra un mensaje de advertencia
+      window.alert('No se puede eliminar el libro porque está prestado.');
+      return;
+    }
+  
+    // Mostrar un cuadro de confirmación
+    const confirmar = window.confirm('¿Estás seguro de que quieres eliminar este libro?');
+  
+    if (confirmar) {
+      // Si el usuario confirma, proceder con la eliminación
+      this.librosService.eliminarLibro(libro.id_libro).subscribe(
+        (response) => {
+          console.log(response.message);
+          this.libros.splice(index, 1);
+        },
+        (error) => {
+          console.error('Error al eliminar el libro', error);
+        }
+      );
+    } else {
+      // Si el usuario cancela, no se realiza ninguna acción
+      console.log('Eliminación cancelada');
+    }
   }
+  
+  
 
   
 
