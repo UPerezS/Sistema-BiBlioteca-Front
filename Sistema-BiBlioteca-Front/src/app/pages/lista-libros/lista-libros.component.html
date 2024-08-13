@@ -67,9 +67,16 @@
             <td>{{ libro.titulo_libro }}</td>
             <td>
               <input type="text" class="form-control" formControlName="autor" />
+              <div *ngIf="form.get('autor')?.touched && form.get('autor')?.invalid" class="text-danger">
+                El campo Autor es obligatorio.
+              </div>
             </td>
+            
             <td>
               <input type="text" class="form-control" formControlName="genero" />
+              <div *ngIf="form.get('genero')?.touched && form.get('genero')?.invalid" class="text-danger">
+                El campo Género es obligatorio.
+              </div>
             </td>
             <td>
               <input type="checkbox" class="form-check-input" formControlName="estatus_prestamo" />

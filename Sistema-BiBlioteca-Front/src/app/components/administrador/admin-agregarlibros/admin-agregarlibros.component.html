@@ -20,14 +20,32 @@
     <div class="form-group">
       <label for="titulo_libro">Título del Libro</label>
       <input type="text" id="titulo_libro" formControlName="titulo_libro" class="form-control" placeholder="Ingrese el título del libro">
+      <div *ngIf="form.get('titulo_libro').hasError('required') && form.get('titulo_libro').touched">
+        <p class="text-danger">El título es obligatorio.</p>
+      </div>
+      <div *ngIf="form.get('titulo_libro').hasError('minlength') && form.get('titulo_libro').touched">
+        <p class="text-danger">El título debe tener al menos 3 caracteres.</p>
+      </div>
     </div>
     <div class="form-group">
       <label for="autor">Autor</label>
       <input type="text" id="autor" formControlName="autor" class="form-control" placeholder="Ingrese el autor del libro">
+      <div *ngIf="form.get('autor').hasError('required') && form.get('autor').touched">
+        <p class="text-danger">El autor es obligatorio.</p>
+      </div>
+      <div *ngIf="form.get('autor').hasError('minlength') && form.get('autor').touched">
+        <p class="text-danger">El autor debe tener al menos 3 caracteres.</p>
+      </div>
     </div>
     <div class="form-group">
       <label for="fecha_publicacion">Fecha de Publicación</label>
       <input type="date" id="fecha_publicacion" formControlName="fecha_publicacion" class="form-control">
+      <div *ngIf="form.get('fecha_publicacion').hasError('required') && form.get('fecha_publicacion').touched">
+        <p class="text-danger">La fecha es obligatoria.</p>
+      </div>
+      <div *ngIf="form.get('fecha_publicacion').hasError('fechaNoFutura') && form.get('fecha_publicacion').touched">
+        <p class="text-danger">La fecha no puede ser futura.</p>
+      </div>
     </div>
     <div class="form-group">
       <label for="genero">Género</label>
@@ -35,6 +53,9 @@
         <option value="" disabled selected>Seleccione un género</option>
         <option *ngFor="let genero of generos" [value]="genero">{{ genero }}</option>
       </select>
+      <div *ngIf="form.get('genero').hasError('required') && form.get('genero').touched">
+        <p class="text-danger">El género es obligatorio.</p>
+      </div>
     </div>
     <button type="submit" class="btn btn-primary mt-3">Agregar Libro</button>
   </form>
