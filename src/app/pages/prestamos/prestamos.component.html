@@ -1,0 +1,69 @@
+<div class="history-wrapper">
+  <!-- Orbs for background depth -->
+  <div class="bg-orb orb-1"></div>
+  <div class="bg-orb orb-2"></div>
+
+  <!-- Glass Header -->
+  <header class="glass-header">
+    <div class="header-content">
+      <a [routerLink]="['/inicio']" class="logo">
+        <i class="bi bi-shield-lock-fill"></i> Portal Admin
+      </a>
+      <nav class="navbar">
+        <ul class="nav-list">
+          <li><a routerLink="/admin-home" class="nav-link">Inicio</a></li>
+          <li><a routerLink="/admin-agregar" class="nav-link">Agregar</a></li>
+          <li><a routerLink="/admin-lista-libros" class="nav-link">Gestión</a></li>
+          <li><a routerLink="/hitorial-prestamos" class="nav-link active">Préstamos</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <div class="section-title">
+      <h3 class="page-title">Historial de Circulación</h3>
+    </div>
+
+    <div class="table-container">
+      <div class="table-responsive">
+        <table class="glass-table">
+          <thead>
+            <tr>
+              <th><i class="bi bi-hash"></i> ID</th>
+              <th><i class="bi bi-calendar-check"></i> Préstamo</th>
+              <th><i class="bi bi-calendar-x"></i> Devolución</th>
+              <th><i class="bi bi-person-circle"></i> Usuario</th>
+              <th><i class="bi bi-book"></i> Recurso LIterario</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let prestamo of prestamos" class="table-row">
+              <td class="id-cell">#{{ prestamo.id_prestamo }}</td>
+              <td class="date-cell">{{ prestamo.fecha_prestamo | date:'dd/MM/yyyy' }}</td>
+              <td class="date-cell">
+                <span [style.color]="prestamo.fecha_devolucion ? 'rgba(255,255,255,0.6)' : '#fab1a0'">
+                  {{ prestamo.fecha_devolucion ? (prestamo.fecha_devolucion | date:'dd/MM/yyyy') : 'Pendiente' }}
+                </span>
+              </td>
+              <td>
+                <div class="user-name">
+                  <div class="user-avatar">{{ prestamo.usuario.charAt(0).toUpperCase() }}</div>
+                  <span>{{ prestamo.usuario }}</span>
+                </div>
+              </td>
+              <td class="book-title">{{ prestamo.libro }}</td>
+            </tr>
+            <!-- Empty State -->
+            <tr *ngIf="!prestamos || prestamos.length === 0">
+              <td colspan="5" style="text-align: center; padding: 50px; color: rgba(255,255,255,0.3);">
+                <i class="bi bi-archive" style="font-size: 2rem; display: block; margin-bottom: 10px;"></i>
+                No hay registros de préstamos en el archivo.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+</div>

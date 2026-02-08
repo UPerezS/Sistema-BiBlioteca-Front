@@ -1,0 +1,217 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&family=Tilt+Neon&display=swap");
+
+:host {
+  display: block;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Nunito", sans-serif;
+}
+
+.history-wrapper {
+  min-height: 100vh;
+  width: 100%;
+  background-color: #0d0d12;
+  background-image:
+    radial-gradient(at 0% 0%, rgba(108, 92, 231, 0.1) 0px, transparent 50%),
+    radial-gradient(at 100% 0%, rgba(0, 206, 201, 0.08) 0px, transparent 50%),
+    radial-gradient(at 100% 100%, rgba(225, 112, 85, 0.05) 0px, transparent 50%);
+  color: #fff;
+  padding-bottom: 50px;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Glass Header Styling */
+.glass-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(13, 13, 18, 0.75);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 1rem 5%;
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.logo {
+  font-family: "Tilt Neon", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  background: linear-gradient(90deg, #a29bfe, #81ecec);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-decoration: none;
+}
+
+.nav-list {
+  display: flex;
+  gap: 1.2rem;
+  list-style: none;
+}
+
+.nav-link {
+  color: rgba(255, 255, 255, 0.6);
+  text-decoration: none;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  transition: all 0.3s;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* Main Content */
+.main-content {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 5%;
+}
+
+.section-title {
+  margin-bottom: 30px;
+}
+
+h3.page-title {
+  font-family: "Tilt Neon", sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  background: linear-gradient(90deg, #fff, rgba(255, 255, 255, 0.7));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Archive Table Styling */
+.table-responsive {
+  overflow-x: auto;
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+.glass-table {
+  width: 100%;
+  border-collapse: collapse;
+  color: #fff;
+  text-align: left;
+}
+
+.glass-table th {
+  background: rgba(255, 255, 255, 0.04);
+  padding: 20px;
+  font-weight: 700;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: rgba(255, 255, 255, 0.5);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.glass-table td {
+  padding: 18px 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+  font-size: 0.95rem;
+  vertical-align: middle;
+}
+
+.table-row {
+  transition: background 0.3s;
+}
+
+.table-row:hover {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.id-cell {
+  font-family: 'Courier New', Courier, monospace;
+  color: #a29bfe;
+  font-weight: 600;
+}
+
+.date-cell {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.85rem;
+}
+
+.book-title {
+  font-weight: 700;
+  color: #fff;
+}
+
+.user-name {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.user-avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(129, 236, 236, 0.1);
+  color: #81ecec;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+}
+
+/* Orbs */
+.bg-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  z-index: -1;
+  opacity: 0.4;
+}
+
+.orb-1 {
+  width: 600px;
+  height: 600px;
+  background: #6c5ce7;
+  top: -20%;
+  right: -10%;
+}
+
+.orb-2 {
+  width: 500px;
+  height: 500px;
+  background: #00cec9;
+  bottom: -10%;
+  left: -10%;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .header-content {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .page-title {
+    font-size: 1.6rem;
+  }
+
+  .glass-table td,
+  .glass-table th {
+    padding: 15px;
+  }
+}

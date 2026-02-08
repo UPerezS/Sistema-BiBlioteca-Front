@@ -1,0 +1,72 @@
+<div class="history-wrapper">
+  <!-- Orbs for background depth -->
+  <div class="bg-orb orb-1"></div>
+  <div class="bg-orb orb-2"></div>
+
+  <!-- Glass Header -->
+  <header class="glass-header">
+    <div class="header-content">
+      <a [routerLink]="['/inicio']" class="logo">
+        <i class="bi bi-book-half"></i> Biblioteca
+      </a>
+      <nav class="navbar">
+        <ul class="nav-list">
+          <li><a routerLink="/user-home" class="nav-link">Dashboard</a></li>
+          <li><a routerLink="/user-vista" class="nav-link">Ver Libros</a></li>
+          <li><a routerLink="/hitorial-prestamos-id" class="nav-link active">Historial</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <div class="section-title">
+      <h3 class="page-title">Mis Lecturas</h3>
+    </div>
+
+    <div class="table-container">
+      <div class="table-responsive">
+        <table class="glass-table">
+          <thead>
+            <tr>
+              <th><i class="bi bi-hash"></i> ID</th>
+              <th><i class="bi bi-calendar-event"></i> Fecha Préstamo</th>
+              <th><i class="bi bi-calendar-check"></i> Fecha Devolución</th>
+              <th><i class="bi bi-journal-text"></i> Libro</th>
+              <th><i class="bi bi-arrow-repeat"></i> Gestión</th>
+            </tr>
+          </thead>
+          <tbody>
+            <ng-container *ngFor="let prestamo of prestamos">
+              <tr class="table-row">
+                <td class="id-cell">#{{ prestamo.id_prestamo }}</td>
+                <td class="date-cell">{{ prestamo.fecha_prestamo | date:'dd/MM/yyyy' }}</td>
+                <td class="date-cell">
+                  <span *ngIf="prestamo.fecha_devolucion">{{ prestamo.fecha_devolucion | date:'dd/MM/yyyy' }}</span>
+                  <span *ngIf="!prestamo.fecha_devolucion" class="pending-status">Pendiente</span>
+                </td>
+                <td class="book-title">{{ prestamo.titulo_libro }}</td>
+                <td>
+                  <button *ngIf="!prestamo.fecha_devolucion" class="btn-return"
+                    (click)="devolverLibro(prestamo.id_prestamo)">
+                    <i class="bi bi-arrow-return-left"></i> Devolver
+                  </button>
+                  <span *ngIf="prestamo.fecha_devolucion" class="returned-badge">
+                    <i class="bi bi-check2-all"></i> Procesado
+                  </span>
+                </td>
+              </tr>
+            </ng-container>
+            <!-- Empty State -->
+            <tr *ngIf="!prestamos || prestamos.length === 0">
+              <td colspan="5" style="text-align: center; padding: 60px; color: rgba(255,255,255,0.2);">
+                <i class="bi bi-journal-album" style="font-size: 2.5rem; display: block; margin-bottom: 15px;"></i>
+                Aún no has solicitado ningún libro.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+</div>

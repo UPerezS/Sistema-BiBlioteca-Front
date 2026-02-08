@@ -1,0 +1,63 @@
+<footer class="footer">
+  <div class="footer-container">
+    <!-- Brand Section -->
+    <div class="footer-brand">
+      <a [routerLink]="['/inicio']" class="logo">
+        <i class="bi bi-book-half"></i> Cosmic Lib
+      </a>
+      <p class="brand-desc">
+        Explorando las fronteras del conocimiento a través de una gestión literaria inteligente y moderna. Tu portal al
+        universo del saber.
+      </p>
+    </div>
+
+    <!-- Quick Links -->
+    <div class="footer-section">
+      <h4>Navegación</h4>
+      <ul class="footer-links">
+        <li><a routerLink="/inicio"><i class="bi bi-chevron-right"></i> Inicio</a></li>
+        <li><a routerLink="/login"><i class="bi bi-chevron-right"></i> Conectar</a></li>
+        <li><a routerLink="/register"><i class="bi bi-chevron-right"></i> Unirse</a></li>
+      </ul>
+    </div>
+
+    <!-- Legal Links -->
+    <div class="footer-section">
+      <h4>Servicios</h4>
+      <ul class="footer-links">
+        <li><a href="#"><i class="bi bi-chevron-right"></i> Préstamos</a></li>
+        <li><a href="#"><i class="bi bi-chevron-right"></i> Catálogo</a></li>
+        <li><a href="#"><i class="bi bi-chevron-right"></i> Reserva</a></li>
+      </ul>
+    </div>
+
+    <!-- Social & Contact -->
+    <div class="footer-section">
+      <h4>Contacto</h4>
+      <div class="contact-item">
+        <i class="bi bi-geo-alt-fill"></i>
+        <span>Av. del Espacio #42, Sector Andrómeda</span>
+      </div>
+      <div class="contact-item">
+        <i class="bi bi-envelope-fill"></i>
+        <span>soporte&#64;cosmiclib.com</span>
+      </div>
+      <div class="social-icons">
+        <a href="#" class="social-btn" title="Facebook"><i class="bi bi-facebook"></i></a>
+        <a href="#" class="social-btn" title="Instagram"><i class="bi bi-instagram"></i></a>
+        <a href="#" class="social-btn" title="Twitter/X"><i class="bi bi-twitter-x"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="copyright">
+      © {{ currentYear }} Cosmic Library System. Todos los derechos reservados.
+    </div>
+    <div class="legal-links">
+      <a href="#">Privacidad</a>
+      <a href="#">Términos</a>
+      <a href="#">Cookies</a>
+    </div>
+  </div>
+</footer>

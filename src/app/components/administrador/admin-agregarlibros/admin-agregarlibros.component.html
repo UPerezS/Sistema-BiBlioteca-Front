@@ -1,0 +1,95 @@
+<div class="inventory-wrapper">
+  <!-- Orbs for background depth -->
+  <div class="bg-orb orb-1"></div>
+  <div class="bg-orb orb-2"></div>
+
+  <!-- Glass Header -->
+  <header class="glass-header">
+    <div class="header-content">
+      <a [routerLink]="['/inicio']" class="logo">
+        <i class="bi bi-shield-lock-fill"></i> Portal Admin
+      </a>
+      <nav class="navbar">
+        <ul class="nav-list">
+          <li><a routerLink="/admin-home" class="nav-link">Inicio</a></li>
+          <li><a routerLink="/admin-agregar" class="nav-link active">Agregar</a></li>
+          <li><a routerLink="/admin-lista-libros" class="nav-link">Gestión</a></li>
+          <li><a routerLink="/hitorial-prestamos" class="nav-link">Préstamos</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="form-section">
+    <div class="glass-container">
+      <div class="form-header">
+        <div class="form-icon">
+          <i class="bi bi-journal-plus"></i>
+        </div>
+        <h2 class="form-title">Nuevo Libro</h2>
+      </div>
+
+      <form [formGroup]="form" (ngSubmit)="agregarLibro()">
+        <!-- Título -->
+        <div class="form-group">
+          <label for="titulo_libro">Título del ejemplar</label>
+          <div class="input-wrapper">
+            <i class="bi bi-journal-text input-icon"></i>
+            <input type="text" id="titulo_libro" formControlName="titulo_libro" placeholder="Eje: El Psicoanalista">
+          </div>
+          <div class="error-msg" *ngIf="form.get('titulo_libro').touched">
+            <p *ngIf="form.get('titulo_libro').hasError('required')">El título es requerido para el registro.</p>
+            <p *ngIf="form.get('titulo_libro').hasError('minlength')">El título debe ser más descriptivo (min 3 carac.).
+            </p>
+          </div>
+        </div>
+
+        <!-- Autor -->
+        <div class="form-group">
+          <label for="autor">Autor / Escritor</label>
+          <div class="input-wrapper">
+            <i class="bi bi-person-badge input-icon"></i>
+            <input type="text" id="autor" formControlName="autor" placeholder="Eje: John Katzenbach">
+          </div>
+          <div class="error-msg" *ngIf="form.get('autor').touched">
+            <p *ngIf="form.get('autor').hasError('required')">El autor es fundamental para la búsqueda.</p>
+            <p *ngIf="form.get('autor').hasError('minlength')">Nombre de autor demasiado corto.</p>
+          </div>
+        </div>
+
+        <!-- Fecha Publicación -->
+        <div class="form-group">
+          <label for="fecha_publicacion">Fecha de Publicación</label>
+          <div class="input-wrapper">
+            <i class="bi bi-calendar3 input-icon"></i>
+            <input type="date" id="fecha_publicacion" formControlName="fecha_publicacion">
+          </div>
+          <div class="error-msg" *ngIf="form.get('fecha_publicacion').touched">
+            <p *ngIf="form.get('fecha_publicacion').hasError('required')">Indique la fecha de salida original.</p>
+            <p *ngIf="form.get('fecha_publicacion').hasError('fechaNoFutura')">La fecha no puede ser posterior al día de
+              hoy.</p>
+          </div>
+        </div>
+
+        <!-- Género -->
+        <div class="form-group">
+          <label for="genero">Categoría / Género</label>
+          <div class="input-wrapper">
+            <i class="bi bi-tags input-icon"></i>
+            <select id="genero" formControlName="genero">
+              <option value="" disabled selected>Seleccione el género literario</option>
+              <option *ngFor="let genero of generos" [value]="genero">{{ genero }}</option>
+            </select>
+          </div>
+          <div class="error-msg" *ngIf="form.get('genero').hasError('required') && form.get('genero').touched">
+            <p>Por favor, clasifique el contenido.</p>
+          </div>
+        </div>
+
+        <button type="submit" class="btn-submit">
+          <i class="bi bi-plus-circle"></i> Registrar en Inventario
+        </button>
+      </form>
+    </div>
+  </section>
+</div>

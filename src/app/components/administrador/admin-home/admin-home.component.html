@@ -1,0 +1,111 @@
+<div class="dashboard-wrapper">
+  <!-- Glass Header -->
+  <header class="glass-header">
+    <div class="header-content">
+      <a [routerLink]="['/inicio']" class="logo">
+        <i class="bi bi-shield-lock-fill"></i> Portal Admin
+      </a>
+      <nav class="navbar">
+        <ul class="nav-list">
+          <li><a routerLink="/admin-home" class="nav-link active">Inicio</a></li>
+          <li><a routerLink="/admin-agregar" class="nav-link">Agregar</a></li>
+          <li><a routerLink="/admin-lista-libros" class="nav-link">Gestión</a></li>
+          <li><a routerLink="/hitorial-prestamos" class="nav-link">Préstamos</a></li>
+          <li><button (click)="logout()" class="btn-logout">Salir</button></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <!-- Welcome Section -->
+    <section class="welcome-section">
+      <span class="admin-badge">Nivel de Acceso: Root</span>
+      <h1 class="welcome-title">
+        Panel de <span class="gradient-text">Control</span>
+      </h1>
+      <p class="decorated-msg">Gestor: {{ adminName || 'Administrador' }} | {{ decoratedMessage }}</p>
+    </section>
+
+    <!-- Dashboard Grid -->
+    <div class="dashboard-grid">
+
+      <!-- Inventory Card -->
+      <div class="glass-card">
+        <div class="card-header">
+          <div class="card-icon"><i class="bi bi-plus-circle-fill"></i></div>
+          <h3 class="card-title">Nuevo Libro</h3>
+        </div>
+        <p class="card-desc">Expande la colección de la biblioteca añadiendo nuevos títulos y ejemplares al sistema.</p>
+        <a routerLink="/admin-agregar" class="btn-card btn-primary-grad">Agregar Libro</a>
+      </div>
+
+      <!-- Library Management Card -->
+      <div class="glass-card">
+        <div class="card-header">
+          <div class="card-icon"><i class="bi bi-grid-3x3-gap-fill"></i></div>
+          <h3 class="card-title">Gestión Total</h3>
+        </div>
+        <p class="card-desc">Edita, elimina o actualiza la información de los libros existentes en el inventario global.
+        </p>
+        <a routerLink="/admin-lista-libros" class="btn-card btn-outline">Gestionar Inventario</a>
+      </div>
+
+      <!-- Global Loans Card -->
+      <div class="glass-card">
+        <div class="card-header">
+          <div class="card-icon"><i class="bi bi-clipboard-data-fill"></i></div>
+          <h3 class="card-title">Préstamos Globales</h3>
+        </div>
+        <p class="card-desc">Monitoriza todos los préstamos activos y el historial completo de la biblioteca.</p>
+        <a routerLink="/hitorial-prestamos" class="btn-card btn-outline">Ver Historial</a>
+      </div>
+
+      <!-- Quick Stats Summary -->
+      <div class="glass-card">
+        <div class="card-header">
+          <div class="card-icon"><i class="bi bi-activity"></i></div>
+          <h3 class="card-title">Resumen de Estado</h3>
+        </div>
+        <div class="stats-row">
+          <div class="stat-item">
+            <span class="stat-value">4.2k</span>
+            <span class="stat-label">Libros</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-value">128</span>
+            <span class="stat-label">Activos</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-value">12</span>
+            <span class="stat-label">Alertas</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Decorator Tool Lab -->
+      <div class="glass-card decorator-card">
+        <div class="card-header">
+          <div class="card-icon"><i class="bi bi-palette-fill"></i></div>
+          <h3 class="card-title">Branding Administrativo (Decorator)</h3>
+        </div>
+        <p class="card-desc">
+          Ajusta y decora los mensajes de cabecera utilizando el patrón decorador implementado.
+          Esta herramienta permite visualizaciones rápidas de estados de mensajes.
+        </p>
+
+        <div class="decorator-controls">
+          <button class="btn-card btn-primary-grad" style="width: auto; padding: 10px 25px;"
+            (click)="decorateMessage()">
+            <i class="bi bi-gear-wide-connected"></i> Procesar Decoración
+          </button>
+          <div style="display: flex; flex-direction: column;">
+            <span style="font-size: 0.8rem; color: rgba(255,255,255,0.4);">Índice de Decoración</span>
+            <span style="font-weight: 700; color: #81ecec;">LVL-{{ decorationIndex }}</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+</div>

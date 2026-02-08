@@ -1,0 +1,125 @@
+<div class="register-wrapper">
+  <!-- Back to Home Link -->
+  <a routerLink="/inicio" class="back-home" title="Volver al Inicio">
+    <i class="bi bi-arrow-left"></i>
+  </a>
+
+  <!-- Animated Orbs -->
+  <div class="bg-orb orb-1"></div>
+  <div class="bg-orb orb-2"></div>
+
+  <!-- Glass Container -->
+  <div class="glass-container">
+    <div class="header-lock">
+      <i class="bi bi-person-plus-fill"></i>
+    </div>
+
+    <h2 class="register-title">Crear Cuenta</h2>
+
+    <form [formGroup]="registerForm" (ngSubmit)="register()" class="form-grid">
+
+      <!-- Nombre -->
+      <div class="form-group">
+        <input type="text" formControlName="nombre" id="nombre" placeholder="Nombre" required autocomplete="off" />
+        <i class="bi bi-person-fill input-icon"></i>
+        <div class="error-msg"
+          *ngIf="registerForm.get('nombre').invalid && (registerForm.get('nombre').dirty || registerForm.get('nombre').touched)">
+          <small *ngIf="registerForm.get('nombre').errors['required']">Nombre es requerido.</small>
+          <small *ngIf="registerForm.get('nombre').errors['maxLength']">Máx 20 caracteres.</small>
+          <small *ngIf="registerForm.get('nombre').errors['pattern']">Solo letras.</small>
+        </div>
+      </div>
+
+      <!-- Apellido Paterno -->
+      <div class="form-group">
+        <input type="text" formControlName="apellido_pa" id="apellido_pa" placeholder="Apellido Paterno" required
+          autocomplete="off" />
+        <i class="bi bi-person-fill input-icon"></i>
+        <div class="error-msg"
+          *ngIf="registerForm.get('apellido_pa').invalid && (registerForm.get('apellido_pa').dirty || registerForm.get('apellido_pa').touched)">
+          <small *ngIf="registerForm.get('apellido_pa').errors['required']">Requerido.</small>
+          <small *ngIf="registerForm.get('apellido_pa').errors['maxLength']">Máx 20 caracteres.</small>
+          <small *ngIf="registerForm.get('apellido_pa').errors['pattern']">Solo letras.</small>
+        </div>
+      </div>
+
+      <!-- Apellido Materno -->
+      <div class="form-group">
+        <input type="text" formControlName="apellido_ma" id="apellido_ma" placeholder="Apellido Materno" required
+          autocomplete="off" />
+        <i class="bi bi-person-fill input-icon"></i>
+        <div class="error-msg"
+          *ngIf="registerForm.get('apellido_ma').invalid && (registerForm.get('apellido_ma').dirty || registerForm.get('apellido_ma').touched)">
+          <small *ngIf="registerForm.get('apellido_ma').errors['required']">Requerido.</small>
+          <small *ngIf="registerForm.get('apellido_ma').errors['maxLength']">Máx 20 caracteres.</small>
+          <small *ngIf="registerForm.get('apellido_ma').errors['pattern']">Solo letras.</small>
+        </div>
+      </div>
+
+      <!-- Teléfono -->
+      <div class="form-group">
+        <input type="tel" formControlName="telefono" id="telefono" placeholder="Teléfono" required autocomplete="off" />
+        <i class="bi bi-telephone-fill input-icon"></i>
+        <div class="error-msg"
+          *ngIf="registerForm.get('telefono').invalid && (registerForm.get('telefono').dirty || registerForm.get('telefono').touched)">
+          <small *ngIf="registerForm.get('telefono').errors['required']">Requerido.</small>
+          <small *ngIf="registerForm.get('telefono').errors['maxlength']">Máx 9 dígitos.</small>
+          <small *ngIf="registerForm.get('telefono').errors['pattern']">9 dígitos exactos.</small>
+        </div>
+      </div>
+
+      <!-- Dirección (Full Width) -->
+      <div class="form-group full-width">
+        <input type="text" formControlName="direccion" id="direccion" placeholder="Dirección Completa" required
+          autocomplete="off" />
+        <i class="bi bi-geo-alt-fill input-icon"></i>
+        <div class="error-msg"
+          *ngIf="registerForm.get('direccion').invalid && (registerForm.get('direccion').dirty || registerForm.get('direccion').touched)">
+          <small *ngIf="registerForm.get('direccion').errors['required']">Dirección requerida.</small>
+          <small *ngIf="registerForm.get('direccion').errors['maxlength']">Máx 20 caracteres.</small>
+        </div>
+      </div>
+
+      <!-- Correo (Full Width) -->
+      <div class="form-group full-width">
+        <input type="email" formControlName="correo" id="correo" placeholder="Correo Electrónico" required
+          autocomplete="off" />
+        <i class="bi bi-envelope-fill input-icon"></i>
+        <div class="error-msg"
+          *ngIf="registerForm.get('correo').invalid && (registerForm.get('correo').dirty || registerForm.get('correo').touched)">
+          <small *ngIf="registerForm.get('correo').errors['required']">Correo requerido.</small>
+          <small *ngIf="registerForm.get('correo').errors['email']">Formato inválido.</small>
+        </div>
+      </div>
+
+      <!-- Contraseña (Full Width) -->
+      <div class="form-group full-width">
+        <input type="password" formControlName="contrasena" id="contrasena" placeholder="Contraseña" required />
+        <i class="bi bi-lock-fill input-icon"></i>
+        <div class="error-msg"
+          *ngIf="registerForm.get('contrasena').invalid && (registerForm.get('contrasena').dirty || registerForm.get('contrasena').touched)">
+          <small *ngIf="registerForm.get('contrasena').errors['required']">Contraseña requerida.</small>
+          <small *ngIf="registerForm.get('contrasena').errors['minlength']">Mínimo 8 caracteres.</small>
+          <small *ngIf="registerForm.get('contrasena').errors['maxlength']">Máx 16 caracteres.</small>
+          <small *ngIf="registerForm.get('contrasena').errors['pattern']">Requiere Mayúscula, minúscula, número y
+            símbolo.</small>
+        </div>
+      </div>
+
+      <!-- Terms -->
+      <p class="terms-text">
+        Al registrarte, aceptas nuestros <a href="#">términos y condiciones</a>.
+      </p>
+
+      <!-- Submit Button -->
+      <button type="submit" class="btn-register" [disabled]="registerForm.invalid">
+        Crear Cuenta
+      </button>
+
+      <!-- Login Link -->
+      <div class="login-link">
+        ¿Ya tienes cuenta? <a routerLink="/login">Inicia Sesión</a>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,41 @@
+<div class="login-wrapper">
+  <!-- Back to Home Link -->
+  <a routerLink="/inicio" class="back-home" title="Volver al Inicio">
+    <i class="bi bi-arrow-left"></i>
+  </a>
+
+  <!-- Animated Orbs -->
+  <div class="bg-orb orb-1"></div>
+  <div class="bg-orb orb-2"></div>
+
+  <div class="glass-container">
+    <div class="header-lock">
+      <i class="bi bi-lock-fill"></i>
+    </div>
+
+    <h2 class="login-title">Bienvenido</h2>
+    <p class="login-subtitle">Ingresa a tu cuenta para continuar</p>
+
+    <form (ngSubmit)="login()">
+      <div class="form-group">
+        <input type="email" id="correo" [(ngModel)]="email" name="correo" placeholder="Correo Electrónico" required
+          autocomplete="off">
+        <i class="bi bi-envelope-fill input-icon"></i>
+      </div>
+
+      <div class="form-group">
+        <input type="password" id="contrasena" [(ngModel)]="password" name="contrasena" placeholder="Contraseña"
+          required>
+        <i class="bi bi-key-fill input-icon"></i>
+      </div>
+
+      <button type="submit" class="btn-login">
+        Iniciar Sesión
+      </button>
+
+      <div class="register-link">
+        ¿No tienes cuenta? <a routerLink="/registro">Regístrate aquí</a>
+      </div>
+    </form>
+  </div>
+</div>

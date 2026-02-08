@@ -1,0 +1,86 @@
+<div class="home-container">
+    <!-- Navbar -->
+    <header class="glass-header">
+        <a [routerLink]="['/inicio']" class="logo">
+            <i class="bi bi-book-half"></i> Biblioteca
+        </a>
+        <nav class="navbar">
+            <ul class="nav-list">
+                <li><a routerLink="/inicio" class="nav-link active">Inicio</a></li>
+                <li><a routerLink="/login" class="nav-link">Login</a></li>
+                <li><a routerLink="/registro" class="nav-link">Registro</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-content">
+            <span class="tech-badge">Gestión Inteligente v2.0</span>
+            <h1 class="hero-title">
+                Tu Biblioteca <br>
+                <span class="gradient-text">Virtual</span>
+            </h1>
+            <p class="hero-desc">
+                Explora una forma fresca y eficiente de organizar tu universo literario.
+                Tecnología de vanguardia aplicada a la pasión por la lectura.
+            </p>
+
+            <div class="cta-group">
+                <button routerLink="/registro" class="btn-primary">
+                    Empezar Ahora <i class="bi bi-arrow-right-short"></i>
+                </button>
+                <button routerLink="/login" class="btn-secondary">
+                    Acceder
+                </button>
+            </div>
+        </div>
+
+        <div class="hero-visual">
+            <div class="glow-orb orb-1"></div>
+            <div class="glow-orb orb-2"></div>
+
+            <!-- Animated Glass Card Element -->
+            <div class="floating-glass-card">
+                <div class="card-icon">
+                    <i class="bi bi-collection"></i>
+                </div>
+                <div class="card-lines">
+                    <div class="line"></div>
+                    <div class="line medium"></div>
+                    <div class="line short"></div>
+                    <div class="line"></div>
+                </div>
+                <div style="margin-top: auto;">
+                    <div class="line short" style="margin-bottom: 10px;"></div>
+                    <div class="line medium"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Features Grid Preview -->
+        <div class="features-grid">
+            <div class="feature-item">
+                <i class="bi bi-speedometer2 feature-icon"></i>
+                <div class="feature-text">
+                    <h4>Rendimiento</h4>
+                    <p>Búsquedas instantáneas</p>
+                </div>
+            </div>
+            <div class="feature-item">
+                <i class="bi bi-shield-check feature-icon"></i>
+                <div class="feature-text">
+                    <h4>Seguro</h4>
+                    <p>Datos protegidos</p>
+                </div>
+            </div>
+            <div class="feature-item">
+                <i class="bi bi-people feature-icon"></i>
+                <div class="feature-text">
+                    <h4>Comunidad</h4>
+                    <p>Conecta y comparte</p>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

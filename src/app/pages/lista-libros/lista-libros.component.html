@@ -1,0 +1,142 @@
+<div class="list-wrapper">
+  <!-- Orbs for background depth -->
+  <div class="bg-orb orb-1"></div>
+  <div class="bg-orb orb-2"></div>
+
+  <!-- Glass Header -->
+  <header class="glass-header">
+    <div class="header-content">
+      <a [routerLink]="['/inicio']" class="logo">
+        <i class="bi bi-shield-lock-fill"></i> Portal Admin
+      </a>
+      <nav class="navbar">
+        <ul class="nav-list">
+          <li><a routerLink="/admin-home" class="nav-link">Inicio</a></li>
+          <li><a routerLink="/admin-agregar" class="nav-link">Agregar</a></li>
+          <li><a routerLink="/admin-lista-libros" class="nav-link active">Gestión</a></li>
+          <li><a routerLink="/hitorial-prestamos" class="nav-link">Préstamos</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <div class="title-section">
+      <h3 class="page-title">Gestión de Biblioteca</h3>
+    </div>
+
+    <!-- Filters Section -->
+    <div class="filter-glass-card">
+      <form [formGroup]="filtroForm" (ngSubmit)="filtrarLibros()" class="filter-form">
+        <div class="form-group">
+          <label for="titulo">Título</label>
+          <div class="input-wrapper">
+            <i class="bi bi-search input-icon"></i>
+            <input type="text" class="form-control" formControlName="titulo" placeholder="Buscar título...">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="autor">Autor</label>
+          <div class="input-wrapper">
+            <i class="bi bi-person input-icon"></i>
+            <input type="text" class="form-control" formControlName="autor" placeholder="Buscar autor...">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="genero">Género</label>
+          <div class="input-wrapper">
+            <i class="bi bi-tags input-icon"></i>
+            <input type="text" class="form-control" formControlName="genero" placeholder="Buscar género...">
+          </div>
+        </div>
+        <button type="submit" class="btn-filter">
+          <i class="bi bi-funnel"></i> Filtrar
+        </button>
+      </form>
+    </div>
+
+    <!-- Table Section -->
+    <form [formGroup]="form" (ngSubmit)="update()" class="table-container">
+      <div class="table-responsive">
+        <table class="glass-table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Título</th>
+              <th>Autor</th>
+              <th>Género</th>
+              <th>Estado</th>
+              <th>Visibilidad</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <ng-container *ngFor="let libro of libros; let i = index">
+              <!-- Data Row -->
+              <tr *ngIf="libroSeleccionado !== libro" (click)="selectLibro(libro)" class="table-row">
+                <td><code style="color: #a29bfe;">#{{ libro.id_libro }}</code></td>
+                <td style="font-weight: 700;">{{ libro.titulo_libro }}</td>
+                <td style="color: rgba(255,255,255,0.7);">{{ libro.autor }}</td>
+                <td>{{ libro.genero }}</td>
+                <td>
+                  <span class="badge" [ngClass]="libro.estatus_prestamo ? 'badge-loaned' : 'badge-available'">
+                    <i class="bi" [ngClass]="libro.estatus_prestamo ? 'bi-clock-history' : 'bi-check-circle'"></i>
+                    {{ libro.estatus_prestamo ? 'Prestado' : 'Disponible' }}
+                  </span>
+                </td>
+                <td>
+                  <span class="badge" [ngClass]="libro.estatus ? 'badge-inactive' : 'badge-active'">
+                    <i class="bi" [ngClass]="libro.estatus ? 'bi-eye-slash' : 'bi-eye'"></i>
+                    {{ libro.estatus ? 'Inactivo' : 'Activo' }}
+                  </span>
+                </td>
+                <td>
+                  <button class="btn-action btn-delete" title="Eliminar del sistema" type="button"
+                    (click)="deleteLibro(i); $event.stopPropagation()">
+                    <i class="bi bi-trash3-fill"></i>
+                  </button>
+                </td>
+              </tr>
+
+              <!-- Editing Row -->
+              <tr *ngIf="libroSeleccionado === libro" class="editing-row">
+                <td>#{{ libro.id_libro }}</td>
+                <td style="font-weight: 700;">{{ libro.titulo_libro }}</td>
+                <td>
+                  <input type="text" class="table-input" formControlName="autor" placeholder="Autor" />
+                </td>
+                <td>
+                  <input type="text" class="table-input" formControlName="genero" placeholder="Género" />
+                </td>
+                <td>
+                  <div style="display: flex; align-items: center; gap: 8px;">
+                    <input type="checkbox" class="form-check-input" formControlName="estatus_prestamo" />
+                    <span style="font-size: 0.8rem;">Prestado</span>
+                  </div>
+                </td>
+                <td>
+                  <div style="display: flex; align-items: center; gap: 8px;">
+                    <input type="checkbox" class="form-check-input" formControlName="estatus" />
+                    <span style="font-size: 0.8rem;">Inactivo</span>
+                  </div>
+                </td>
+                <td>
+                  <div style="display: flex;">
+                    <button class="btn-action btn-update" title="Guardar cambios" type="submit"
+                      [disabled]="form.invalid">
+                      <i class="bi bi-check-lg"></i>
+                    </button>
+                    <button class="btn-action btn-cancel" title="Descartar" (click)="cancel(); $event.stopPropagation()"
+                      type="button">
+                      <i class="bi bi-x-lg"></i>
+                    </button>
+                  </div>
+                </td>
+              </tr>
+            </ng-container>
+          </tbody>
+        </table>
+      </div>
+    </form>
+  </main>
+</div>
